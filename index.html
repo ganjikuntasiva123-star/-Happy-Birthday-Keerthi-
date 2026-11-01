@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Keerthi 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&display=swap');
+
+:root{--pink:#ff8fbd;--dark-pink:#e85d99;--text:#75415f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;font-family:'Baloo 2',cursive;color:var(--text);background:linear-gradient(135deg,#fffafd,#ffe0ed,#fff0f7);overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+#decorations{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.floating{position:absolute;bottom:-50px;animation:floatUp linear infinite;opacity:.7}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.sparkle{position:absolute;animation:twinkle 2s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1.2)}}
+
+/* PASSWORD */
+#lockScreen{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:18px;background:linear-gradient(135deg,#fff8fc,#ffddeb,#fff0f7);transition:opacity .9s,visibility .9s;overflow:hidden}
+#lockScreen.unlocked{opacity:0;visibility:hidden;pointer-events:none}
+.lock-card{width:min(370px,100%);padding:30px 22px;text-align:center;border:2px solid white;border-radius:32px;background:#ffffffeb;box-shadow:0 18px 60px #d89abb36}
+.lock-icon{display:inline-flex;align-items:center;justify-content:center;width:85px;height:85px;margin-bottom:8px;border-radius:50%;font-size:43px;background:#ffe0ef}
+.lock-card h1{font-family:'Dancing Script',cursive;font-size:2.8rem;color:var(--dark-pink)}
+.lock-card p{margin:5px 0}
+.pin-dots{display:flex;justify-content:center;gap:17px;margin:20px 0 10px}
+.pin-dot{width:15px;height:15px;border-radius:50%;background:#f4d7e7;border:2px solid #e9a9ca}
+.pin-dot.filled{background:#e85d99}
+#lockMessage{min-height:27px;margin:7px 0 12px;color:#d94d85}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:275px;margin:12px auto}
+.key{height:49px;border:1px solid #f6c9df;border-radius:17px;color:#994b75;background:linear-gradient(145deg,#fff,#fff0f7);font-size:1.3rem;font-weight:700}
+.key:hover{background:#ffe0ef}
+.key-action{background:#ffc6df}
+.lock-decoration{margin-top:10px;font-size:1.25rem}
+.shake{animation:shake .35s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+/* CELEBRATION */
+#celebrationLayer{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:3000}
+.confetti-piece{position:absolute;top:-55px;animation:confettiFly var(--duration,3.2s) ease forwards}
+@keyframes confettiFly{0%{transform:translate3d(0,0,0) rotate(0) scale(.6);opacity:0}8%{opacity:1}100%{transform:translate3d(var(--drift,0px),var(--fall,100vh),0) rotate(var(--spin,540deg)) scale(1);opacity:0}}
+#celebrationTitle{position:fixed;z-index:3001;top:15%;left:0;width:100%;text-align:center;font-family:'Dancing Script',cursive;font-size:clamp(2rem,7vw,4rem);color:#d94d91;text-shadow:0 2px 10px white;opacity:0;pointer-events:none}
+#celebrationTitle.show{animation:titleCelebrate 2.4s ease forwards}
+@keyframes titleCelebrate{0%{opacity:0;transform:scale(.5)}20%,70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.1) translateY(-20px)}}
+
+/* PROFILES */
+#profileScreen{display:none;position:fixed;inset:0;z-index:2000;min-height:100vh;padding:35px 18px;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:linear-gradient(135deg,#fff5fa,#ffd1e5,#ffecf5,#ffb9d8);overflow-y:auto}
+#profileScreen.show{display:flex}
+#profileScreen h2{color:#d94d91;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:8px}
+.profile-subtitle{margin-bottom:30px}
+.profile-grid{display:grid;grid-template-columns:repeat(4,minmax(0,155px));gap:20px;width:min(760px,100%);justify-content:center}
+.profile-choice{min-width:0;padding:8px;color:#874260;background:#ffffffc9;border:1px solid white;border-radius:22px;box-shadow:0 10px 30px #d58ab325;transition:transform .25s}
+.profile-choice:hover{transform:translateY(-7px)}
+.profile-picture{display:block;width:100%;aspect-ratio:1;overflow:hidden;border-radius:17px;border:3px solid white;background:#ffe0ef}
+.profile-picture img{width:100%;height:100%;display:block;object-fit:cover}
+.profile-name{display:block;margin-top:12px}
+
+/* TEDDY AND HEART */
+#heartIntro,#teddyQuestion{display:none;position:fixed;inset:0;z-index:2400;align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:24px;text-align:center;overflow-y:auto;background:linear-gradient(135deg,#fff8fc,#ffd7e9,#fff0f7)}
+#heartIntro{z-index:2500}
+#heartIntro.show,#teddyQuestion.show{display:flex;animation:pageIn .6s ease both}
+#heartIntro h2,#teddyQuestion h2{font-family:'Dancing Script',cursive;color:#d94d91;font-size:clamp(2.2rem,7vw,3.8rem)}
+#heartIntro p,#teddyQuestion p{max-width:520px;line-height:1.7}
+.heart-instruction{font-weight:700;color:#a94376}
+.big-heart-button{border:0;background:transparent;font-size:clamp(7rem,24vw,12rem);line-height:1;filter:drop-shadow(0 12px 18px #d94d9155);animation:bigHeartBeat 1.15s ease-in-out infinite}
+@keyframes bigHeartBeat{0%,100%{transform:scale(1)}20%{transform:scale(1.12)}40%{transform:scale(1)}60%{transform:scale(1.08)}}
+
+/* TEDDY STAGE */
+.teddy-stage{
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:clamp(25px,8vw,75px);
+    min-height:190px;
+    width:100%;
+    overflow:visible;
+    perspective:600px;
+}
+
+.teddy{
+    font-size:clamp(5rem,17vw,8rem);
+    display:inline-block;
+    transform-origin:bottom center;
+    will-change:transform;
+    cursor:pointer;
+}
+
+/* FIRST TEDDY DANCE */
+.teddy-left{
+    animation:teddyDanceLeft 1.5s ease-in-out infinite;
+}
+
+/* SECOND TEDDY DANCE */
+.teddy-right{
+    animation:teddyDanceRight 1.5s ease-in-out infinite;
+    animation-delay:.35s;
+}
+
+/* LEFT TEDDY MOVEMENT */
+@keyframes teddyDanceLeft{
+    0%,100%{
+        transform:translate(0,0) rotate(-8deg) scale(1);
+    }
+    15%{
+        transform:translate(-12px,-22px) rotate(-18deg) scale(1.08);
+    }
+    30%{
+        transform:translate(0,0) rotate(8deg) scale(.98);
+    }
+    50%{
+        transform:translate(15px,-30px) rotate(15deg) scale(1.1);
+    }
+    70%{
+        transform:translate(5px,-8px) rotate(-5deg) scale(1);
+    }
+    85%{
+        transform:translate(-5px,-18px) rotate(-12deg) scale(1.04);
+    }
+}
+
+/* RIGHT TEDDY MOVEMENT */
+@keyframes teddyDanceRight{
+    0%,100%{
+        transform:translate(0,0) rotate(8deg) scale(1);
+    }
+    15%{
+        transform:translate(12px,-28px) rotate(18deg) scale(1.1);
+    }
+    30%{
+        transform:translate(0,0) rotate(-8deg) scale(.98);
+    }
+    50%{
+        transform:translate(-15px,-22px) rotate(-15deg) scale(1.08);
+    }
+    70%{
+        transform:translate(-5px,-8px) rotate(5deg) scale(1);
+    }
+    85%{
+        transform:translate(5px,-18px) rotate(12deg) scale(1.04);
+    }
+}
+
+/* TEDDY HOVER */
+.teddy:hover{
+    animation-play-state:paused;
+    transform:scale(1.25) rotate(15deg);
+}
+
+.teddy-buttons{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.teddy-btn{border:0;border-radius:999px;padding:12px 30px;color:white;font-weight:700;background:linear-gradient(135deg,#ff78b1,#e85d99)}
+.teddy-btn.no{color:#a34b78;background:#fff;border:1px solid #f4b5d1}
+#teddyMessage{min-height:30px;color:#a94376;font-weight:700}
+
+/* WEBSITE */
+#birthdaySite{display:none;position:relative;z-index:2;min-height:100vh;padding-bottom:35px;background:linear-gradient(135deg,#fffafd,#ffe0ed,#fff0f7)}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:15px 10px;position:sticky;top:0;z-index:50;background:#fff0f7ed;backdrop-filter:blur(10px);border-bottom:1px solid #f9d9e9}
+nav button{border:1px solid #f5c7de;background:#ffffffd9;color:#9d5279;padding:8px 14px;border-radius:22px}
+nav button:hover{background:#ffdeec}
+.page{display:none;width:min(1000px,100%);min-height:70vh;margin:0 auto;padding:42px 22px;text-align:center;animation:pageIn .6s ease both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+h1,h2{font-family:'Dancing Script',cursive;color:var(--dark-pink)}
+h2{font-size:clamp(2.5rem,7vw,4rem);margin-bottom:12px}
+.hero{min-height:75vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.eyebrow{display:inline-block;background:white;border:1px solid #f8cde1;padding:7px 17px;border-radius:30px;margin-bottom:20px}
+.cheers-21{display:inline-block;margin:0 auto 18px;padding:9px 24px;border:1px solid #f4b5d1;border-radius:999px;color:#b73576;background:linear-gradient(135deg,#fff,#ffd5e8,#fff0f7);box-shadow:0 8px 22px #e68bb833;font-size:clamp(1.15rem,4vw,1.7rem);font-weight:700;letter-spacing:2px}
+.hero h1{font-size:clamp(3.2rem,10vw,6.5rem);line-height:1.08}
+.hero p,.subtitle{font-size:1.1rem;margin:18px auto 24px;max-width:650px;line-height:1.7}
+.hero-emoji{font-size:clamp(3rem,9vw,5rem);margin:20px 0;animation:bigHeartBeat 1.6s infinite}
+.main-btn{border:none;padding:12px 25px;border-radius:30px;color:white;font-weight:700;background:linear-gradient(135deg,#ff86b7,#f7b2d0,#f6a7c9);box-shadow:0 7px 18px #e69cc747;margin:4px}
+.main-btn:hover{transform:translateY(-3px)}
+.card{max-width:760px;margin:20px auto;padding:28px;border:1px solid white;border-radius:25px;background:#ffffffd9;box-shadow:0 12px 35px #bd8db21a;line-height:1.9}
+.card p{margin-bottom:12px}
+.letter{max-width:700px;margin:25px auto;padding:35px;background:#fffaf0;border:1px solid #f6dfb9;border-radius:8px 25px;box-shadow:0 12px 30px #a9806020;line-height:2;text-align:left}
+.letter h3{font-family:'Dancing Script',cursive;font-size:2.2rem;color:#d86c99;margin-bottom:12px}
+.letter p{margin-bottom:12px}
+
+/* PHOTO GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px auto;max-width:1000px}
+.photo-card{min-width:0;padding:11px;border-radius:18px;background:white;box-shadow:0 7px 25px #bd8db226;transition:transform .3s;overflow-wrap:break-word}
+.photo-card:hover{transform:translateY(-4px)}
+.photo-frame{height:210px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#ffe0ee,#fff0f7);display:flex;justify-content:center;align-items:center;font-size:3rem}
+.photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* SPECIAL THANKS IMAGE */
+.deepa-memory .photo-frame{
+    width:100%!important;
+    max-width:600px!important;
+    height:auto!important;
+    min-height:0;
+    padding:10px;
+    margin:0 auto 15px;
+    overflow:visible;
+    background:linear-gradient(135deg,#ffe0ee,#fff0f7);
+}
+.deepa-memory .photo-frame img{
+    width:100%;
+    height:auto;
+    max-height:75vh;
+    object-fit:contain;
+    display:block;
+    border-radius:10px;
+}
+
+.photo-card p{padding:10px 3px 3px;line-height:1.55;font-size:.94rem;white-space:pre-line}
+.photo-card strong{display:block;color:#d94d91;font-size:1.08rem;margin-bottom:5px}
+.birthday-message{white-space:pre-line;overflow-wrap:anywhere;line-height:1.7}
+.message-preview,.message-full{white-space:pre-line}
+.read-more-btn{display:block;margin:12px auto 4px;padding:9px 20px;background:linear-gradient(135deg,#ff75a9,#e84393);color:white;border:none;border-radius:25px;font-size:.9rem;font-weight:700;box-shadow:0 4px 10px #e8439333;transition:transform .2s}
+.read-more-btn:hover{transform:translateY(-2px)}
+[hidden]{display:none!important}
+.memory-note{max-width:800px;margin:28px auto;padding:25px;border:1px solid white;border-radius:25px;background:#ffffffd9;box-shadow:0 8px 25px #bd8db226;line-height:1.9}
+
+/* WISHES AND SPECIAL THANKS */
+.wish-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:850px;margin:25px auto}
+.wish{padding:25px 18px;border-radius:22px;background:#ffffffd9;border:1px solid #f8d9e8;line-height:1.7;box-shadow:0 8px 22px #d98ab218;transition:transform .25s,box-shadow .25s}
+.wish:hover{transform:translateY(-5px);box-shadow:0 12px 28px #d98ab230}
+.wish span{display:block;font-size:2.2rem;margin-bottom:5px}
+.wish-name{font-family:'Dancing Script',cursive;font-size:1.9rem;color:#d94d91;font-weight:700;margin-bottom:10px}
+.wish-message{font-size:1rem;overflow-wrap:anywhere}
+.gift{font-size:clamp(5rem,15vw,9rem);display:inline-block;margin:20px;animation:giftBounce 1.8s ease-in-out infinite;cursor:pointer}
+@keyframes giftBounce{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}}
+#finalMessage{display:none}
+footer{text-align:center;padding:18px;opacity:.8}
+.music-btn{position:fixed;right:15px;bottom:15px;z-index:80;border:1px solid #f6c6dc;background:#fffafdf2;color:#a2537e;border-radius:30px;padding:10px 15px;box-shadow:0 5px 20px #a2537e20}
+
+@media(max-width:650px){
+    nav{gap:6px;padding:12px 6px}
+    nav button{font-size:.82rem;padding:7px 10px}
+    .page{padding:32px 16px}
+    .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .photo-frame{height:155px}
+    .wish-grid{grid-template-columns:1fr}
+    .card,.letter{padding:22px 18px}
+    .deepa-memory .photo-frame{min-height:0}
+    .deepa-memory .photo-frame img{max-height:none}
+    .teddy-stage{min-height:155px;gap:25px}
+}
+@media(max-width:520px){
+    .profile-grid{grid-template-columns:repeat(2,minmax(0,135px));gap:18px 22px}
+    .profile-subtitle{margin-bottom:22px}
+}
+@media(max-width:360px){
+    .lock-card{padding:22px 16px}
+    .keypad{gap:7px}
+    .key{height:45px}
+    .photo-frame{height:125px}
+    .photo-card p{font-size:.83rem}
+    .read-more-btn{font-size:.82rem;padding:8px 15px}
+}
+@media(prefers-reduced-motion:reduce){
+    .teddy-left,.teddy-right{animation:none}
+}
+</style>
+</head>
+
+<body>
+<div id="decorations"></div>
+<div id="celebrationLayer"></div>
+<div id="celebrationTitle">Surprise, Keerthi! 💖</div>
+
+<!-- PASSWORD SCREEN -->
+<div id="lockScreen">
+    <div class="lock-card" id="lockCard">
+        <div class="lock-icon" id="lockIcon">🔒</div>
+        <h1>A Little Surprise</h1>
+        <p>Only someone special can open this gift 💗</p>
+        <p>Enter your secret 4-digit code ✨</p>
+        <div class="pin-dots">
+            <span class="pin-dot"></span><span class="pin-dot"></span>
+            <span class="pin-dot"></span><span class="pin-dot"></span>
+        </div>
+        <p id="lockMessage">Tap the numbers to unlock 🌸</p>
+        <div class="keypad">
+            <button class="key" onclick="pressNumber('1')">1</button>
+            <button class="key" onclick="pressNumber('2')">2</button>
+            <button class="key" onclick="pressNumber('3')">3</button>
+            <button class="key" onclick="pressNumber('4')">4</button>
+            <button class="key" onclick="pressNumber('5')">5</button>
+            <button class="key" onclick="pressNumber('6')">6</button>
+            <button class="key" onclick="pressNumber('7')">7</button>
+            <button class="key" onclick="pressNumber('8')">8</button>
+            <button class="key" onclick="pressNumber('9')">9</button>
+            <button class="key key-action" onclick="clearPin()">⌫</button>
+            <button class="key" onclick="pressNumber('0')">0</button>
+            <button class="key key-action" onclick="checkPin()">♥</button>
+        </div>
+        <div class="lock-decoration">🌷 💕 🦋 💕 🌷</div>
+    </div>
+</div>
+
+<!-- PROFILE SCREEN -->
+<section id="profileScreen">
+    <h2>Who's watching? 🌸</h2>
+    <p class="profile-subtitle">Choose your cute little profile, birthday girl ✨</p>
+    <div class="profile-grid">
+        <button class="profile-choice" onclick="selectProfile('Buddi')">
+            <span class="profile-picture"><img src="image1.jpg" alt="Buddi profile"></span>
+            <span class="profile-name">Buddi 🌸</span>
+        </button>
+        <button class="profile-choice" onclick="selectProfile('Keerthi')">
+            <span class="profile-picture"><img src="image2.jpg" alt="Keerthi profile"></span>
+            <span class="profile-name">Keerthi 💖</span>
+        </button>
+        <button class="profile-choice" onclick="selectProfile('Keerthiluuuu')">
+            <span class="profile-picture"><img src="image3.jpg" alt="Keerthiluuuu profile"></span>
+            <span class="profile-name">Keerthiluuuu 🧸</span>
+        </button>
+        <button class="profile-choice" onclick="selectProfile('Keerthioda')">
+            <span class="profile-picture"><img src="image4.jpg" alt="Keerthioda profile"></span>
+            <span class="profile-name">Keerthioda 🦋</span>
+        </button>
+    </div>
+</section>
+
+<!-- TEDDY QUESTION -->
+<section id="teddyQuestion">
+    <h2>Are You Excited? 🧸💗</h2>
+    <p>Two little teddy bears have one important question for you, Keerthi! ✨</p>
+
+    <div class="teddy-stage">
+        <span class="teddy teddy-left">🧸</span>
+        <span class="teddy teddy-right">🧸</span>
+    </div>
+
+    <p id="teddyMessage">Are you excited to see your birthday surprise? 🥹</p>
+
+    <div class="teddy-buttons">
+        <button class="teddy-btn" id="teddyYes" onclick="answerExcited(true)">YES! 💖</button>
+        <button class="teddy-btn no" id="teddyNo" onclick="answerExcited(false)">NO 🙈</button>
+    </div>
+</section>
+
+<!-- HEART INTRO -->
+<section id="heartIntro">
+    <h2>One Little Surprise, Keerthi! 💗</h2>
+    <p class="heart-instruction">Tap the heart to open your birthday surprise 💘</p>
+    <button class="big-heart-button" onclick="openBirthdaySurprise()">💖</button>
+    <p>Tap the heart to shower your screen with flowers and confetti 🌸✨</p>
+    <p>Made with love, just for you 💕</p>
+</section>
+
+<!-- MAIN WEBSITE -->
+<div id="birthdaySite">
+    <nav>
+        <button onclick="showPage('home')">🏠 Home</button>
+        <button onclick="showPage('memories')">📸 Memories</button>
+        <button onclick="showPage('wishes')">🌸 Wishes</button>
+        <button onclick="showPage('surprise')">🎁 Surprise</button>
+        <button onclick="showPage('letter')">💌 Letter</button>
+        <button onclick="showPage('finally')">✨ Finally</button>
+        <button onclick="showPage('specialThanks')">💝 Special Thanks</button>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="eyebrow">🌷 A special day for someone special 🌷</div>
+            <div class="cheers-21">🥂 CHEERS TO 21 🥂</div>
+            <h1>Happy Birthday<br>Keerthi! 💗</h1>
+            <div class="hero-emoji">🎂 💖 🎀</div>
+            <p>Today is all about your beautiful smile, your happiness, and the wonderful memories still waiting to happen.</p>
+            <button class="main-btn" onclick="showPage('memories')">See Our Memories 📸</button>
+        </div>
+    </section>
+
+    <!-- MEMORIES -->
+    <section id="memories" class="page">
+        <h2>Our Little Memories 📸</h2>
+        <p class="subtitle">Every picture holds a little story, every moment a reason to smile. These memories are precious because they remind us of laughter, silly talks, and beautiful moments we share. 💗</p>
+
+        <div class="gallery">
+
+            <!-- DEEPA -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image5.jpg" alt="Memory 1" onerror="this.style.display='none';this.parentElement.innerHTML='🌷'">
+                </div>
+                <p class="birthday-message"><strong>From Deepa 💕</strong>
+                    <span class="message-preview">HAPPY BIRTHDAY TO MY BEAUTIFUL SISTER 💗
+
+Dear Akka,
+
+First of all, a very, very happy birthday to you! You are not just my sister; you are one of the most precious gifts God has ever given me. Words can never fully explain how much you mean to me...</span>
+                    <span class="message-full" hidden>HAPPY BIRTHDAY TO MY BEAUTIFUL SISTER 💗
+
+Dear Akka,
+
+First of all, a very, very happy birthday to you! You are not just my sister; you are one of the most precious gifts God has ever given me. Words can never fully explain how much you mean to me and how deeply I love you. Sometimes, I may not express my feelings properly, and I may not tell you every day how special you are to me. But please remember that you will always have a very special place in my heart.
+
+No matter how much we fight, argue, or tease each other, my love for you will never change. You are my sister, my happiness, my strength, and one of the most beautiful parts of my life.
+
+On your special day, I wish you all the happiness, love, success, and peace in the world. May all your dreams come true, and may you achieve everything your heart desires. I pray that God always protects you, guides you in the right direction, and gives you the strength to overcome every difficulty in life. You deserve so many beautiful things, Akka, because you are truly special to me.
+
+Thank you for being a part of my life. Thank you for all the little moments, the memories, the smiles, and even the silly fights that make our relationship so special. I hope we create many more beautiful memories together.
+
+Happy Birthday, my forever favourite person, my precious sister, and my forever Akka! ♾️
+
+With all my love,
+
+Your loving little sister. 💖</span>
+                </p>
+                <button type="button" class="read-more-btn" aria-expanded="false" onclick="toggleReadMore(this)">Read More 💗</button>
+            </div>
+
+            <!-- VINOD -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image6.jpg" alt="Memory 2" onerror="this.style.display='none';this.parentElement.innerHTML='🦋'">
+                </div>
+                <p><strong>From Vinod 🌸</strong>Dear Keerrr, ❤️
+
+Happyyy Happyyy Birthdayyy!
+
+I'm truly lucky to have you in my life. We may be brother and sister by relation, but the bond we share is much more like two best friends.
+
+You're someone with whom I can share anything, talk without hesitation, laugh for no reason, and be completely myself.
+
+I might not say it often, but you hold a very special place in my heart. I always wish to see you happy, successful, and achieving everything you dream of.
+
+No matter how busy life gets or how far we go, we never lose this beautiful bond.
+
+Stay happy, keep smiling 😊, and always be the same Keerthi I know and love💗.
+
+With lots of love,
+Your brother and forever friend! ❤️</p>
+            </div>
+
+            <!-- PRIYA -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image7.jpg" alt="Memory 3" onerror="this.style.display='none';this.parentElement.innerHTML='🎀'">
+                </div>
+                <p><strong>From Priya ✨</strong>Happy Birthday, my Keerthi! ❤️🎂
+
+It's me, your kothi. I don't know how to express my feelings, but I just wanna try. 🫶🏻 You're the first person I met on my very first day of college, and now we're graduating together! ❤️ You're someone who truly understands me, and I'm so glad to have you in my life. Our late-night laughs and sharing reels will always be my favourite memories. 💗 You're someone I never want to lose, and I hope our friendship stays the same even after college. 🫂♾️ On your birthday, I wish you all the happiness, success, and love you deserve. Once again, happy birthday, Keerthi! ❤️ Thank you for always being there for me. LOVE YOU ALWAYS, mawaaa! 😘😘🫶🏻❤️</p>
+            </div>
+
+            <!-- PRIYANKA -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image8.jpg" alt="Memory 4" onerror="this.style.display='none';this.parentElement.innerHTML='💗'">
+                </div>
+                <p class="birthday-message"><strong>From Priyanka 😊</strong>
+                    <span class="message-preview">Hello Keerthi 🙋🏻‍♀️. Wish you a very Happy Birthday mowaa 🫂❣️. Nak unna ee btech frnds lo nv chala spl ra. Ndukante nv chese allari, aa mature thinking, straight forwardness, doola ivanni ninnu eppatiki gurthundela chesthayii...</span>
+                    <span class="message-full" hidden>Hello Keerthi 🙋🏻‍♀️. Wish you a very Happy Birthday mowaa 🫂❣️. Nak unna ee btech frnds lo nv chala spl ra. Ndukante nv chese allari, aa mature thinking, straight forwardness, doola ivanni ninnu eppatiki gurthundela chesthayii. Right from the first manam frnds ayyam, baaga tirigam inka ekkuvaga intlo xerox lu ani cheppi mari biryanilu dobbi thinnam. But suddenly vere oka godava valla mana madhya distance vachindhi 🙃 and almost 7 months matallev and then Jan 1st na malli matlaadam. Nv mundhu ela undedanivoo appudu kuda alane matladav, the same vibe same allari same kindness.
+
+Nak nitho unna core memories ante rende gurthosthayi mowa:
+1. Tollywood lo lollypop biryani.
+2. NBD lo manam midnight connections daggara matladukovadam.
+
+Tarvtha aa 2-2 lo manam kalisi sem ki prepare ayyam 😅 akkada chadavadam kante nidrapovadam thinadame ekkuva undedhi le 😂🤪. Alage next same hostel lo join ayyam.
+
+Here comes the hardest part. You gave the support to me everytime and stand beside me 😘. Daniki Nenem chesina takkuvee. Na hardest times lo natho ne unnav you have seen my low times and still choose to stay with me.
+
+And andaru nannu oka vishayam lo blame chestunna kuda nv matrame stand teskoni natho unnav nak dhairyam cheppav. Oka frnd ga nv pettalsina efforts kante chala ekkuve pettesav mowa 😘.
+
+Manam visthara lo unnappudu chesina doola panulu, midnight maggies, pg aunty tho godava, mana godavalu, night dinner ayyaka kindha kurchoni pette muchatlu vammoo chepthe inka chala ne unnayi ra ayya nithoo.
+
+Ne gurinchi inka entha cheppina takkuvee telsa. Anni unnayii anni memories ichav nak. Love you mowaa 💞😽.
+
+Nv ilage doola panulu chesthuu undali ani korukuntu
+
+-Keerthi fans vice president (President evaro anukoku Priya 😅)
+
+Anyways Happy Birthday mowa 😘💌</span>
+                </p>
+                <button type="button" class="read-more-btn" aria-expanded="false" onclick="toggleReadMore(this)">Read More 💗</button>
+            </div>
+
+            <!-- GAYATHRI -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image9.jpg" alt="Memory 5" onerror="this.style.display='none';this.parentElement.innerHTML='🌼'">
+                </div>
+                <p><strong>From Gayathri 🧸</strong>Happy Birthday, Keerthi! ❤️🎂🥳 May your life always be filled with happiness and prosperity. You’re the only friend I have who is this crazy 😂😭❤️. You’re also the only one who always makes us laugh and turns even the simplest moments into the funniest memories. Never change and always keep being your crazy self! 🫶🏻💗 I hope our friendship lasts forever and we keep making beautiful memories together. Love you, girl! 🥹💕♾️</p>
+            </div>
+
+            <!-- SRUTHI -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image10.jpg" alt="Memory 6" onerror="this.style.display='none';this.parentElement.innerHTML='💝'">
+                </div>
+                <p><strong>From Sruthi 🫶</strong>Happiest birthday to you mowaa Who knew we'd become this close when we first met in 1st year of BTech our vibe just clicked and since then we never stopped arguing over the silliest things ever, honestly that's one of the most fun things to do with you 😝 These 4 years became so much more enjoyable because of you. You're one of my comfort people. Stay the same silly, crazy and cute girl forever. Love youuu ra keer mowaa</p>
+            </div>
+
+            <!-- HEMA -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image11.jpg" alt="Memory 7" onerror="this.style.display='none';this.parentElement.innerHTML='😂'">
+                </div>
+                <p><strong>From Hema 💗</strong>From being classmates to sharing the same bench. ❤️
+Our little talks, silly moments, and everyday memories make our bond special. 🫶🏻
+No matter how much we change, I hope our bond always stays the same.
+Glad to have you in my college journey! ❤️✨</p>
+            </div>
+
+            <!-- SWEETY -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image12.jpg" alt="Memory 8" onerror="this.style.display='none';this.parentElement.innerHTML='🌈'">
+                </div>
+                <p><strong>From Sweety 🫶🏻</strong>I honestly never thought that a senior would become this close to me. 🥹❤️ You came into my life as my sister’s friend, but slowly, you became someone really special to me. Your friendly nature, your way of making me laugh, and the comfort I feel around you make our bond even more beautiful. I never expected to share such a lovely bond with you, but now you feel more like an elder sister than just a senior. I’m really happy to have you in my life, and I hope our bond stays the same forever. Love you, akka! 🫶🏻</p>
+            </div>
+
+            <!-- HIMAYA -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image13.jpg" alt="Memory 9" onerror="this.style.display='none';this.parentElement.innerHTML='🎂'">
+                </div>
+                <p><strong>From Himaya 💖</strong>Keerrrrr!!!! U are the craziest person I have ever met.....
+Always stay with the happiest version of yourself...
+Himaya loves you to the FULLEST 😚
+Gurlll!!!! U are the one who i first ever talked with...
+From then to now...
+No matter what the disturbances we had we always end up being good to each other...
+Lots of memories with youu..
+U are special in every single possible way...</p>
+            </div>
+
+            <!-- DURGA -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image14.jpg" alt="Memory 10" onerror="this.style.display='none';this.parentElement.innerHTML='💐'">
+                </div>
+                <p><strong>From Durga ✨</strong>To my sweetest girl😀, I love the days we spend time like anni picchi picchi games anni aadevallam😂 aa time ni eppudu machipolenu, I miss those days, I Want to meet and spend time together, Ni daggara unte calm ga prasantata anipistundi cheppina matalannni baa vintav 😂, I miss our talks.
+‎Happiest Birthday Keerthiii papaaaa😚💗 I wish all the things you want will come to you,Be strong, Be happy, Don't doubt yourself and do all the things with your whole heart ,things will come to you.
+‎Love you soo much keerthiiii🫂🫂</p>
+            </div>
+
+            <!-- NAMRATHA -->
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="image15.jpg" alt="Memory from Namratha" onerror="this.style.display='none';this.parentElement.innerHTML='💐'">
+                </div>
+                <p><strong>From Namratha ✨</strong>Hii Keerthi 👋
+
+Happiest 21th Birthday 🎂🎂
+Many more happy returns of the day 🎉🎉
+
+I have known you for 4 years but we got close over last year. You are one of the most beautiful, cute, bubbly and sexy😉 ladki I have seen in my life.
+
+You are the person who brings shine when the room is dull and I love that in you 💖.
+
+We enjoyed a lot and created beautiful and blissful memories together.
+
+I hope you enjoy a lot in life and get all the things you manifested and get the fictional guy who is just like in your imaginations and fulfils all of your crazy ideas and wildest thoughts. 🥰🥰</p>
+            </div>
+        </div>
+
+        <div class="memory-note">
+            <h3 style="font-family:'Dancing Script',cursive;font-size:2rem;color:#d86c99">Dear Keerthi, 💌</h3>
+            <p>These eleven photos are little pieces of a beautiful story. Whenever you look at them, remember the laughter, friendship, silly moments, and all the happiness they hold. Life will bring new chapters, new dreams, and new adventures, but I hope we always keep these memories close to our hearts.</p>
+            <p>Keep smiling, keep shining, and keep being your wonderful self. Happy Birthday, Buddi! 💗🧸🌸</p>
+        </div>
+        <button class="main-btn" onclick="showPage('wishes')">Birthday Wishes 🌸</button>
+    </section>
+
+    <!-- BIRTHDAY WISHES -->
+    <section id="wishes" class="page">
+        <h2>Birthday Wishes 💌</h2>
+        <p class="subtitle">Beautiful birthday wishes from all your special people, collected with lots of love. Every message is a little reminder of how much you mean to us! 💗🌸</p>
+        <div class="wish-grid">
+            <div class="wish"><span>🌸</span><div class="wish-name">From Deepa 💕</div><p class="wish-message">HAPPY BIRTHDAY TO MY BEAUTIFUL SISTER 💗</p></div>
+            <div class="wish"><span>🎉</span><div class="wish-name">From Vinod 🌷</div><p class="wish-message">Happy Birthday Keerthi</p></div>
+            <div class="wish"><span>💖</span><div class="wish-name">From Priya 🦋</div><p class="wish-message">Happy Birthday, my Keerthi! ❤️🎂</p></div>
+            <div class="wish"><span>🧸</span><div class="wish-name">From Gayathri 🌼</div><p class="wish-message">Happy Birthday, Keerthi! ❤️🎂🥳</p></div>
+            <div class="wish"><span>💕</span><div class="wish-name">From Priyanka 💗</div><p class="wish-message">Happiest birthday to you mowaa</p></div>
+            <div class="wish"><span>🌷</span><div class="wish-name">From Sruthi 🫶</div><p class="wish-message">Happiest birthday to you mowaa</p></div>
+            <div class="wish"><span>🌸</span><div class="wish-name">From Hema 💗</div><p class="wish-message">Our little talks, silly moments, and everyday memories make our bond special. 🫶🏻</p></div>
+            <div class="wish"><span>🫶🏻</span><div class="wish-name">From Sweety 💞</div><p class="wish-message">I’m really happy to have you in my life, and I hope our bond stays the same forever. Love you, akka! 🫶🏻</p></div>
+            <div class="wish"><span>🧸</span><div class="wish-name">From Himaya 💖</div><p class="wish-message">Happy birthday Keerrrr!!</p></div>
+            <div class="wish"><span>😎</span><div class="wish-name">From Siva 💕</div><p class="wish-message">Puttinanduku thx pilla 😁</p></div>
+        </div>
+        <p class="subtitle">Every wish is special, every memory is precious, and every person makes your life a little more beautiful. Happy Birthday, Keerthi! 💗🎂</p>
+        <button class="main-btn" onclick="showPage('surprise')">Open Your Surprise 🎁</button>
+    </section>
+
+    <!-- SURPRISE -->
+    <section id="surprise" class="page">
+        <h2>A Little Surprise 🎁</h2>
+        <p class="subtitle">Made with love, just for you, Keerthi.</p>
+        <div class="card">
+            <div style="font-size:4rem">🧸🌸💝</div>
+            <p>You want surprise yaa papa... </p>
+            <p>I think this your 21 bday will be you most  happiest birthday till now I will do like that may i don't you mehr na kana baga chestadu yamoo celebration  but till now this is best i think so!!!</p>
+            <div style="font-size:2rem">💕 🦋 🌷 ✨</div>
+        </div>
+        <button class="main-btn" onclick="showPage('letter')">Read Your Letter 💌</button>
+    </section>
+
+    <!-- LETTER -->
+    <section id="letter" class="page">
+        <h2>A Letter for You 💌</h2>
+        <p class="subtitle">A few words from the heart.</p>
+        <div class="letter">
+            <h3>Dear Dear Buddi!!, 💗</h3>
+            <p>First thing puttinanduku thx pilla 😁! 🌸</p>
+            <p>And wishing you the happiest birthday, Buddi! 💖🎂</p>
+            <p>Many great people are born in November (like you 🫵😎 and my appa). Na life lo great people kuda November lone puttaru… and November vaallu vacharu! 🤦😂</p>
+            <p>I hope you always remember how special you are. 💗 I know you are my version in the opposite gender! 🧘🤦😂</p>
+            <p>Neeku baaga kovvu maa! Na maatalu asalu vinaru nuvvu &amp; Tinavu! 😤😂</p>
+            <p>😎 Your 8 Special Talents 😂<br>
+            1. Sleeping 😴<br>
+            2. Eating 😋<br>
+            3. Angry issues 😤<br>
+            4. Crying 😭<br>
+            5. Laughing 🤣<br>
+            6. Talking 💁<br>
+            7. Overthinking 🤔<br>
+            8. Clicking photos 📸</p>
+            <p>And eat well, Buddi. 🍕🍫 Be strong 💪, be brave 🦁. Life will go on, pilla, so don't take too much tension. ❤️</p>
+            <p>Whenever you feel low, just call or text me. I am always there for you. 😁 Because I am your problem! 🧘🤦😂</p>
+            <p>I promise you that I will stand with you. At the end of the day, no matter what happens, I am with you. 😎 Run to me when no one understands you. I will always be there for you. 🫂💖</p>
+            <p>Gurtu pettuko maa, you are not just the elder daughter of your family; you are the elder son of your family! ✨🌟 You must achieve your dreams before your marriage, which you shared with me!!</p>
+            <p>Neeku respect ichina varike mathram nuvu respect ivvu maa, otherwise leave those people!!!</p>
+            <p>It takes time maa! You're building a career, not making Maggi!! I know that one day we'll sit down and congratulate each other because we can achieve big things 🤞🤞</p>
+            <p>Nenu unna lekapoyina be strong, be brave, keep smiling and keep going maa. ❤️</p>
+            <p>Dear girl, be proud of yourself !! I am always with you in every situation with brother and friend for ever!!♥️</p>
+            <p>Finally, happy birthday Keerthioda 💖</p>
+            <p>November 3 — Chandamama birthday gaa! 🌙✨ Hoo sorry ya, chandamama nuvu yaha cutieeee, my fruityyyy 🧿🧿</p>
+            <p>Neeku dishti taguluddi anuko… pakka, andaniki kuda dishti tagulude yamoo ! 🧿😂 Happy birthday Keerthiluuuuuuuuuuuu ✨🧿</p>
+            <p style="font-family:'Dancing Script',cursive;font-size:1.8rem;color:#d86c99">With lots of love, always 💕</p>
+        </div>
+        <button class="main-btn" onclick="showPage('finally')">Go to Finally ✨</button>
+    </section>
+
+    <!-- FINALLY -->
+    <section id="finally" class="page">
+        <h2>One Last Little Gift 💝</h2>
+        <p class="subtitle">Tap the gift to reveal your birthday message!</p>
+        <div class="gift" onclick="revealGift()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();revealGift();}">🎁</div>
+        <div id="finalMessage" class="card">
+            <h2>You're Loved! 💗</h2>
+            <p>Happy Birthday, Keerthi! 🎂</p>
+            <p>kanakadurga, kanchi kamaakshi, madurai meenaakshi, karpura talli, ammamma talli, adigirukotta lakshmi swami, mantralaya raghavendra swami, shiridi saibaba, puttaparthi saibaba, thulajapur durgaadevi, panderipur panduramga, kolkata kalidevi, manchigauramma, vemulawada shankaraswami... andaru ninnu challaga chudali amma.Kaluvoya amma Blessings always on you"</p>
+            <p>Keep  32 teeth outside i mean (smiling), have a  good  roju pilla ! 🌸🦋🎀</p>
+            <div style="font-size:2.5rem">💖 💕 💖</div>
+        </div>
+        <button class="main-btn" onclick="celebrateAgain()">Celebrate Again 🎉</button>
+    </section>
+
+    <!-- SPECIAL THANKS ONLY -->
+    <section id="specialThanks" class="page">
+        <h2>Special Thanks 💖</h2>
+        <p class="subtitle">Thank you for collecting these beautiful memories for Keerthi. I think you guys will make Keerthi’s 21st birthday even more special. Thank you, guys! 💗🌸🫶🏻</p>
+
+        <div class="card deepa-memory">
+            <div class="photo-frame">
+                <img src="image00.jpg" alt="Deepa's memory for Keerthi" onerror="this.style.display='none';this.parentElement.innerHTML='🌷'">
+            </div>
+            <p><strong style="color:#d94d91">A special memory from Deepa 💕</strong></p>
+            <p>One more beautiful memory for Keerthi’s 21st birthday! 💗</p>
+        </div>
+
+        <div class="wish-grid">
+            <div class="wish">
+                <span>💗</span>
+                <div class="wish-name">Priya 🦋</div>
+                <p class="wish-message">Thank you for collecting these beautiful memories for Keerthi and helping make her 21st birthday special! 💕</p>
+            </div>
+            <div class="wish">
+                <span>🌼</span>
+                <div class="wish-name">Gayathri 🧸</div>
+                <p class="wish-message">Thank you for being part of these unforgettable birthday memories! 💖</p>
+            </div>
+            <div class="wish">
+                <span>💕</span>
+                <div class="wish-name">Priyanka 🌸</div>
+                <p class="wish-message">Thank you for all the memories, support, and beautiful friendship. 🫂</p>
+            </div>
+            <div class="wish">
+                <span>🎀</span>
+                <div class="wish-name">Namratha 💝</div>
+                <p class="wish-message">Thank you for being part of this special celebration and helping make Keerthi's birthday memorable! ✨</p>
+            </div>
+            <div class="wish">
+                <span>🧸</span>
+                <div class="wish-name">Himaya 💖</div>
+                <p class="wish-message">Thank you for your love, wishes, and special memories! 🫶🏻</p>
+            </div>
+            <div class="wish">
+                <span>🌷</span>
+                <div class="wish-name">Sweety 💞</div>
+                <p class="wish-message">Thank you for your affection and for being part of this lovely birthday surprise! 💗</p>
+            </div>
+            <div class="wish">
+                <span>🦋</span>
+                <div class="wish-name">Sruthi 💕</div>
+                <p class="wish-message">Thank you for the friendship, silly moments, laughter, and wonderful memories! 🌸</p>
+            </div>
+            <div class="wish">
+                <span>💗</span>
+                <div class="wish-name">Hema 🌹</div>
+                <p class="wish-message">Thank you for the little talks, everyday memories, and lovely bond! 🫶🏻</p>
+            </div>
+            <div class="wish">
+                <span>🌸</span>
+                <div class="wish-name">Deepa 💖</div>
+                <p class="wish-message">Thank you for your love, heartfelt wishes, and for making this birthday celebration full of happiness! 💝</p>
+            </div>
+            <div class="wish">
+                <span>🎉</span>
+                <div class="wish-name">Vinod 🌷</div>
+                <p class="wish-message">Thank you for your birthday wishes and for being part of Keerthi's special day! 🎂</p>
+            </div>
+            <div class="wish">
+                <span>🌺</span>
+                <div class="wish-name">Durga 💕</div>
+                <p class="wish-message">Thank you for being part of this celebration and helping create beautiful memories for Keerthi! 💗</p>
+            </div>
+            <div class="wish">
+                <span>👑</span>
+                <div class="wish-name">Teja Akka 💖</div>
+                <p class="wish-message">Thank you for your love, support, and for being part of this wonderful birthday surprise! 🫶🏻</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div style="font-size:4rem">🌷💗🦋</div>
+            <h2 style="font-size:2.7rem">Thank You, Guys! 💖</h2>
+            <p>Thanks for collecting these beautiful memories for Keerthi.</p>
+            <p>I think you guys will make Keerthi’s 21st birthday even more special. Every photo, every wish, and every memory makes this celebration more meaningful.</p>
+            <p>Thank you, guys, for your time, love, and effort. Let’s make Keerthi’s 21st birthday unforgettable! 🫂💗</p>
+            <div style="font-size:2rem">💕 🌸 🎀 🦋 💝</div>
+        </div>
+
+        <button class="main-btn" onclick="showPage('home')">Back to Home 🏠</button>
+    </section>
+
+    <footer>Made with love, just for Keerthi 💗</footer>
+</div>
+
+<button class="music-btn" id="musicButton" onclick="toggleMusic()" style="display:none">♫ Play Music</button>
+
+<audio id="birthdayMusic" loop preload="auto">
+    <source src="birthday-song.mp3" type="audio/mpeg">
+    Your browser does not support audio playback.
+</audio>
+
+<script>
+const CORRECT_PASSWORD="2303";
+let enteredPin="";
+let unlocking=false;
+
+const lockScreen=document.getElementById("lockScreen");
+const lockCard=document.getElementById("lockCard");
+const lockMessage=document.getElementById("lockMessage");
+const lockIcon=document.getElementById("lockIcon");
+const pinDots=document.querySelectorAll(".pin-dot");
+
+function updateDots(){
+    pinDots.forEach((dot,index)=>{
+        dot.classList.toggle("filled",index<enteredPin.length);
+    });
+}
+
+function pressNumber(number){
+    if(unlocking||enteredPin.length>=4)return;
+
+    enteredPin+=number;
+    updateDots();
+    lockMessage.textContent="Almost there! 💕";
+
+    if(enteredPin.length===4){
+        setTimeout(checkPin,250);
+    }
+}
+
+function clearPin(){
+    if(unlocking)return;
+
+    enteredPin=enteredPin.slice(0,-1);
+    updateDots();
+    lockMessage.textContent="Enter your secret code 🌸";
+}
+
+function checkPin(){
+    if(unlocking)return;
+
+    if(enteredPin.length!==4){
+        lockMessage.textContent="Enter all 4 numbers first 💗";
+        return;
+    }
+
+    if(enteredPin===CORRECT_PASSWORD){
+        unlocking=true;
+        lockMessage.textContent="Correct! Surprise time! 💖";
+        lockIcon.textContent="🔓";
+
+        document.querySelectorAll(".key").forEach(key=>{
+            key.disabled=true;
+        });
+
+        startCelebration();
+
+        setTimeout(()=>{
+            lockScreen.classList.add("unlocked");
+            document.getElementById("profileScreen").classList.add("show");
+        },2500);
+
+    }else{
+        lockMessage.textContent="Oops! Wrong code. Try again, cutie 💕";
+
+        lockCard.classList.remove("shake");
+        void lockCard.offsetWidth;
+        lockCard.classList.add("shake");
+
+        enteredPin="";
+        updateDots();
+    }
+}
+
+/* CELEBRATION */
+const celebrationLayer=document.getElementById("celebrationLayer");
+const celebrationTitle=document.getElementById("celebrationTitle");
+
+const symbols=[
+    "🌸","🌷","🌼","💐","💗","💖",
+    "💕","💝","🎊","🎉","✨","🦋"
+];
+
+function startCelebration(){
+    celebrationTitle.classList.remove("show");
+    void celebrationTitle.offsetWidth;
+    celebrationTitle.classList.add("show");
+
+    for(let i=0;i<120;i++){
+        const piece=document.createElement("div");
+
+        piece.className="confetti-piece";
+        piece.textContent=symbols[
+            Math.floor(Math.random()*symbols.length)
+        ];
+
+        piece.style.left=Math.random()*100+"vw";
+
+        piece.style.setProperty(
+            "--duration",
+            (2.4+Math.random()*2.2)+"s"
+        );
+
+        piece.style.setProperty(
+            "--fall",
+            (window.innerHeight+150)+"px"
+        );
+
+        piece.style.setProperty(
+            "--drift",
+            (Math.random()*260-130)+"px"
+        );
+
+        piece.style.setProperty(
+            "--spin",
+            (Math.random()*1000-500)+"deg"
+        );
+
+        piece.style.fontSize=(18+Math.random()*24)+"px";
+
+        celebrationLayer.appendChild(piece);
+
+        setTimeout(()=>{
+            piece.remove();
+        },5000);
+    }
+}
+
+/* PROFILE SELECTION */
+function selectProfile(profileName){
+    document.getElementById("profileScreen").classList.remove("show");
+    document.getElementById("teddyQuestion").classList.add("show");
+}
+
+/* TEDDY QUESTION */
+function answerExcited(isExcited){
+    const message=document.getElementById("teddyMessage");
+
+    if(isExcited){
+        message.textContent="YAYYYY! The teddy bears are SO happy! 🎉🧸💗";
+
+        document.getElementById("teddyNo").style.display="none";
+
+        document.getElementById("teddyYes").textContent="LET'S OPEN IT 💖";
+
+        document.getElementById("teddyYes").onclick=()=>{
+            document.getElementById("teddyQuestion").classList.remove("show");
+            document.getElementById("heartIntro").classList.add("show");
+        };
+
+    }else{
+        message.textContent="The teddy says: ‘Come on, click YES!’ 😂🧸💗";
+    }
+}
+
+/* OPEN BIRTHDAY SURPRISE */
+function openBirthdaySurprise(){
+    startCelebration();
+
+    setTimeout(()=>{
+        document.getElementById("heartIntro").classList.remove("show");
+
+        document.getElementById("birthdaySite").style.display="block";
+
+        document.getElementById("musicButton").style.display="block";
+
+        showPage("home");
+
+        startBirthdayMusic();
+    },2200);
+}
+
+/* PAGE NAVIGATION */
+function showPage(pageId){
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    const selectedPage=document.getElementById(pageId);
+
+    if(selectedPage){
+        selectedPage.classList.add("active");
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+/* READ MORE / READ LESS */
+function toggleReadMore(button){
+    const card=button.closest(".photo-card");
+
+    const preview=card.querySelector(".message-preview");
+    const full=card.querySelector(".message-full");
+
+    if(!preview||!full)return;
+
+    const isExpanded=button.getAttribute("aria-expanded")==="true";
+
+    full.hidden=isExpanded;
+    preview.hidden=!isExpanded;
+
+    button.setAttribute("aria-expanded",String(!isExpanded));
+
+    button.textContent=isExpanded
+        ?"Read More 💗"
+        :"Read Less 💌";
+}
+
+/* GIFT REVEAL */
+function revealGift(){
+    document.getElementById("finalMessage").style.display="block";
+
+    document.getElementById("finalMessage").scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+    startCelebration();
+}
+
+function celebrateAgain(){
+    showPage("finally");
+
+    document.getElementById("finalMessage").style.display="block";
+
+    startCelebration();
+}
+
+/* FLOATING DECORATIONS */
+const decorations=document.getElementById("decorations");
+
+const floatingSymbols=[
+    "💗","💕","🌸","✨","🦋","🌷","💖"
+];
+
+for(let i=0;i<24;i++){
+    const item=document.createElement("div");
+
+    item.className="floating";
+
+    item.textContent=floatingSymbols[
+        Math.floor(Math.random()*floatingSymbols.length)
+    ];
+
+    item.style.left=Math.random()*100+"vw";
+
+    item.style.animationDuration=(8+Math.random()*12)+"s";
+
+    item.style.animationDelay=(-Math.random()*18)+"s";
+
+    item.style.fontSize=(14+Math.random()*20)+"px";
+
+    decorations.appendChild(item);
+}
+
+for(let i=0;i<12;i++){
+    const sparkle=document.createElement("div");
+
+    sparkle.className="sparkle";
+    sparkle.textContent="✦";
+
+    sparkle.style.left=Math.random()*100+"vw";
+    sparkle.style.top=Math.random()*100+"vh";
+
+    sparkle.style.color=i%2?"#efa4c9":"#e87cae";
+
+    sparkle.style.animationDelay=Math.random()*2+"s";
+
+    decorations.appendChild(sparkle);
+}
+
+/* BIRTHDAY MUSIC */
+const birthdayMusic=document.getElementById("birthdayMusic");
+const musicButton=document.getElementById("musicButton");
+
+birthdayMusic.volume=0.7;
+
+async function startBirthdayMusic(){
+    try{
+        await birthdayMusic.play();
+        musicButton.textContent="♫ Stop Music";
+
+    }catch(error){
+        musicButton.textContent="♫ Play Music";
+
+        console.warn(
+            "Tap Play Music if your browser blocks automatic playback.",
+            error
+        );
+    }
+}
+
+async function toggleMusic(){
+    if(!birthdayMusic.paused){
+        birthdayMusic.pause();
+        birthdayMusic.currentTime=0;
+
+        musicButton.textContent="♫ Play Music";
+        return;
+    }
+
+    await startBirthdayMusic();
+}
+
+birthdayMusic.addEventListener("ended",()=>{
+    musicButton.textContent="♫ Play Music";
+});
+
+birthdayMusic.addEventListener("error",()=>{
+    musicButton.textContent="Song unavailable — check MP3";
+});
+</script>
+
+</body>
+</html>
